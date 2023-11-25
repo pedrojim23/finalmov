@@ -20,7 +20,7 @@ class Bienvenida : AppCompatActivity() {
 
             override fun onFinish() {
                 //Vamos hacia el MainActivity
-                val intent = Intent(this@Bienvenida, MainActivity::class.java)
+                val intent = Intent(this@Bienvenida, Eligir_rol::class.java)
                 startActivity(intent)
                 finishAffinity()
             }
