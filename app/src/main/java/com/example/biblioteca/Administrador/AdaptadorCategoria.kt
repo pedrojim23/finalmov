@@ -9,19 +9,25 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.databinding.ItemCategoriaAdminBinding
 import android.content.Context
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 
-class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategoria>{
+class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategoria>, Filterable{
 
     private lateinit var binding : ItemCategoriaAdminBinding
 
-    private var m_context : Context
-    private var categoriaArrayList : ArrayList<ModeloCategoria>
+    private val m_context : Context
+    public var categoriaArrayList : ArrayList<ModeloCategoria>
+
+    private var filtroLista : ArrayList<ModeloCategoria>
+    private var filtro : FiltroCategoria? = null
 
     constructor(m_context: Context, categoriaArrayList: ArrayList<ModeloCategoria>) {
         this.m_context = m_context
         this.categoriaArrayList = categoriaArrayList
+        this.filtroLista = categoriaArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderCategoria {
@@ -73,6 +79,13 @@ class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategor
         var categoriaTv : TextView = binding.ItemNombreCatA
         var eliminarCatIb : ImageButton = binding.EliminarCat
 
+    }
+
+    override fun getFilter(): Filter {
+        if (filtro == null){
+            filtro = FiltroCategoria(filtroLista, this)
+        }
+        return filtro as FiltroCategoria
     }
 
 }

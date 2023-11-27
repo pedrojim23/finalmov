@@ -3,10 +3,13 @@ package com.example.biblioteca.Fragmentos_Admin
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import com.example.biblioteca.Administrador.AdaptadorCategoria
 import com.example.biblioteca.Administrador.Agregar_categoria
 import com.example.biblioteca.Administrador.ModeloCategoria
@@ -39,6 +42,24 @@ class Fragment_admin_dashboard : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         ListarCategorias()
+
+        binding.BuscarCategoria.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(categoria: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                try {
+                    adaptadorCategoria.filter.filter(categoria)
+                }catch (e: Exception){
+
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
 
         binding.BtnAgregarCategoria.setOnClickListener{
             startActivity(Intent(mContext, Agregar_categoria::class.java))
