@@ -27,6 +27,8 @@
     <string name="Txt_agregar_categoria">Agregar categoria</string>
     <string name="Et_categoria">Ingrese categoria</string>
     <string name="Agregar_categoria_Bd">Agregar</string>
+    
+    <string name="Item_nombre_cat_a">Nombre categoria</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

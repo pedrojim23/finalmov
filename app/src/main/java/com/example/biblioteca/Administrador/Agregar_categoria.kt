@@ -1,9 +1,11 @@
 package com.example.biblioteca.Administrador
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.biblioteca.MainActivity
 import com.example.biblioteca.R
 import com.example.biblioteca.databinding.ActivityAgregarCategoriaBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -54,7 +56,7 @@ class Agregar_categoria : AppCompatActivity() {
         val tiempo = System.currentTimeMillis()
 
         val hashMap = HashMap<String, Any>()
-        hashMap["id"] = tiempo
+        hashMap["id"] = "$tiempo"
         hashMap["categoria"] = categoria
         hashMap["tiempo"] = tiempo
         hashMap["uid"] = "${firebaseAuth.uid}"
@@ -66,6 +68,8 @@ class Agregar_categoria : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "Categoria agregada a la base de datos",Toast.LENGTH_SHORT).show()
                 binding.EtCategoria.setText("")
+                startActivity(Intent(this@Agregar_categoria, MainActivity::class.java))
+                finishAffinity()
             }
             .addOnFailureListener{e->
                 progressDialog.dismiss()

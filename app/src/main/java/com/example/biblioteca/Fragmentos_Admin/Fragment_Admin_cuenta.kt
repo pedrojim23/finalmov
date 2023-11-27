@@ -11,7 +11,7 @@ import com.example.biblioteca.Eligir_rol
 import com.example.biblioteca.R
 import com.example.biblioteca.databinding.FragmentAdminCuentaBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.core.Context
+import android.content.Context
 
 
 class Fragment_Admin_cuenta : Fragment() {
@@ -20,8 +20,8 @@ class Fragment_Admin_cuenta : Fragment() {
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var mContext : Context
 
-    override fun onAttach(context: android.content.Context) {
-        //mContext = context
+    override fun onAttach(context: Context) {
+        mContext = context
         super.onAttach(context)
     }
 

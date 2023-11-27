@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             finishAffinity()
         }
         else{
-            Toast.makeText(applicationContext, "Bienvenido ${firebaseUser.email}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, "Bienvenido ${firebaseUser.email}", Toast.LENGTH_SHORT).show()
         }
     }
 }
