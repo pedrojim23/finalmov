@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.biblioteca.databinding.ItemCategoriaAdminBinding
 import android.content.Context
+import android.content.Intent
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.Toast
@@ -60,6 +61,13 @@ class AdaptadorCategoria : RecyclerView.Adapter<AdaptadorCategoria.HolderCategor
                     a.dismiss()
                 }
             builder.show()
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(m_context, ListaPdfAdmin::class.java)
+            intent.putExtra("idCategoria",id)
+            intent.putExtra("tituloCategoria", categoria)
+            m_context.startActivity(intent)
         }
     }
 

@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.example.biblioteca.Administrador.AdaptadorCategoria
+import com.example.biblioteca.Administrador.Agregar_Pdf
 import com.example.biblioteca.Administrador.Agregar_categoria
 import com.example.biblioteca.Administrador.ModeloCategoria
 import com.example.biblioteca.R
@@ -65,6 +66,7 @@ class Fragment_admin_dashboard : Fragment() {
             startActivity(Intent(mContext, Agregar_categoria::class.java))
         }
         binding.AgregarPdf.setOnClickListener {
+            startActivity(Intent(mContext, Agregar_Pdf::class.java))
 
         }
     }
