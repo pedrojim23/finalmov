@@ -54,7 +54,7 @@ class MisFunciones : Application() {
 
         }
 
-        fun CargarPdfUrl(pdfUrl: String, pdfTitulo: String, pdfView: PDFView, progressBar: ProgressBar, paginaTv : TextView){
+        fun CargarPdfUrl(pdfUrl: String, pdfTitulo: String, pdfView: PDFView, progressBar: ProgressBar, paginaTv : TextView?){
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.getBytes(Constantes.Maximo_bytes_pdf)
                 .addOnSuccessListener {bytes->

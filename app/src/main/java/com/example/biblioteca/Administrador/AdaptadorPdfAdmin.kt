@@ -26,7 +26,7 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
         val progressBar = binding.progressBar
         val Txt_titulo_libro_item = binding.TxtTituloLibroItem
         val Txt_descripcion_libro_item = binding.TxtDescripcionLibroItem
-        val Txt_tamaño_libro_admin = binding.TxtTamaOLibroAdmin
+        val Txt_tamanio_libro_admin = binding.TxtTamanioLibroAdmin
         val Txt_categoria_libro_admin = binding.TxtCategoriaLibroAdmin
         val Txt_fecha_libro_admin = binding.TxtFechaLibroAdmin
         val Ib_mas_opciones = binding.IbMasOpciones
@@ -49,5 +49,15 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
         val descripcion = modelo.descripcion
         val pdfUrl = modelo.url
         val tiempo = modelo.tiempo
+
+        val formatoTiempo = MisFunciones.formatoTiempo(tiempo)
+
+        holder.Txt_titulo_libro_item.text = titulo
+        holder.Txt_descripcion_libro_item.text = descripcion
+        holder.Txt_fecha_libro_admin.text = formatoTiempo
+
+        MisFunciones.CargarCategoria(categoriaId, holder.Txt_categoria_libro_admin)
+        MisFunciones.CargarPdfUrl(pdfUrl, titulo, holder.VisualizadorPDF, holder.progressBar, null)
+        MisFunciones.CargarTamanioPdf(pdfUrl, titulo, holder.Txt_tamanio_libro_admin)
     }
 }
