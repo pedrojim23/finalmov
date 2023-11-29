@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import android.content.Context
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.biblioteca.Administrador.EditarPerfilAdmin
 import com.example.biblioteca.Administrador.MisFunciones
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -43,6 +44,10 @@ class Fragment_Admin_cuenta : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         cargarInformacion()
+
+        binding.EditarPerfilAdmin.setOnClickListener{
+            startActivity(Intent(mContext, EditarPerfilAdmin::class.java))
+        }
 
         binding.CerrarSesionAdmin.setOnClickListener{
             firebaseAuth.signOut()
