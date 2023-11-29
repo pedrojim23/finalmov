@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 
 class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin> , Filterable {
 
@@ -90,6 +91,18 @@ class AdaptadorPdfAdmin : RecyclerView.Adapter<AdaptadorPdfAdmin.HolderPdfAdmin>
                 }
                 else if(posicion==1){
                     //Eliminar
+                    val opcionesEliminacion = arrayOf("Si", "Cancelar")
+                    val builder = AlertDialog.Builder(m_context)
+                    builder.setTitle("¿Esta seguro de elimiar ${tituloLibro}?")
+                        .setItems(opcionesEliminacion){dialog, posicion->
+                            if (posicion==0){
+                                MisFunciones.EliminarLibro(m_context, idLibro, urlLibro, tituloLibro)
+                            }
+                            else if (posicion==1){
+                                Toast.makeText(m_context, "Cancelado", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .show()
                 }
             }
             .show()
