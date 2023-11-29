@@ -73,6 +73,18 @@
 
     <string name="Txt_leer_libro">Leer libro</string>
 
+    <!--Perfil admin-->
+    <string name="nombres_admin">Nombres: </string>
+    <string name="Txt_nombres_admin"> -- </string>
+    <string name="email_admin">Email: </string>
+    <string name="Txt_email_admin"> -- </string>
+    <string name="tiempo_registro_admin">Miembro desde: </string>
+    <string name="Txt_tiempo_registro_admin"> -- </string>
+    <string name="rol_admin">Rol: </string>
+    <string name="Txt_rol_admin"> -- </string>
+    <string name="Txt_mas_opciones">Mas opciones: </string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
