@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Administrador.Agregar_Pdf">
+    tools:context=".Administrador.ActualizarLibro">
 
+    <!--toolbar-->
     <RelativeLayout
-        android:id="@+id/toolbarRLAgregarPdf"
+        android:id="@+id/toolbarRlActualizar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m_toolbar_height" >
+        android:layout_height="@dimen/m_toolbar_height">
 
         <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/Ib_regresar"
             android:src="@drawable/ic_regresar"
             android:background="@android:color/transparent"
-            android:padding="10dp"
             android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:padding="10dp" />
 
         <TextView
-            android:id="@+id/Txt_agregar_libro"
-            android:text="@string/Txt_agregar_libro"
+            android:id="@+id/Txt_actualizar_libro"
+            android:text="@string/Txt_actualizar_libro"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            android:layout_height="wrap_content" />
 
         <View
             android:layout_width="match_parent"
@@ -34,41 +34,23 @@
             android:background="#cccccc"
             android:layout_alignParentBottom="true"/>
 
+
     </RelativeLayout>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/IvActualizarL"
+        android:src="@drawable/actualizar_info"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/toolbarRlActualizar"
+        android:layout_marginTop="5dp"
+        android:layout_centerInParent="true"/>
+    
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/LlAdjuntarPdf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/toolbarRLAgregarPdf"
-        >
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/agregar_libro"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            />
-
-        <ImageButton
-            android:id="@+id/AdjuntarPdfIb"
-            android:src="@drawable/ic_adjuntar_pdf"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <!-- Info del Libro -->
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_below="@id/LlAdjuntarPdf"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_below="@id/IvActualizarL">
 
         <!-- Titulo -->
         <com.google.android.material.textfield.TextInputLayout
@@ -129,15 +111,14 @@
             app:drawableEndCompat="@drawable/ic_abajo"
             />
 
-        <!-- Subir Libro -->
+        <!-- Editar Libro -->
         <com.google.android.material.button.MaterialButton
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="@string/Bt_subir_libro"
-            android:id="@+id/Bt_subir_libro"
+            android:text="@string/Bt_actualizar_libro"
+            android:id="@+id/Bt_actualizar_libro"
             android:textAllCaps="true"
             />
 
