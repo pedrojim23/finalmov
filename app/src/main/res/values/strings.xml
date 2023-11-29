@@ -51,8 +51,23 @@
     <string name="Txt_actualizar_libro">Actualizar libro</string>
     <string name="Bt_actualizar_libro">Actualizar</string>
 
-    <string name="Txt_eliminar_libro">Eliminar libro</string>
+    <string name="Txt_detalle_libro">Detalle libro</string>
 
+    <string name="titulo_libro_D">Titulo libro</string>
+    <string name="Txt_categoria_D">Categoria:</string>
+    <string name="categoria_D"> -- </string>
+    <string name="Txt_fecha_D">Fecha:</string>
+    <string name="fecha_D"> -- </string>
+    <string name="Txt_tamanio_D">Tamaño:</string>
+    <string name="tamanio_D"> -- </string>
+    <string name="Txt_vistas_D">Vistas:</string>
+    <string name="vistas_D"> -- </string>
+    <string name="Txt_descargas_D">Descargas:</string>
+    <string name="descargas_D"> -- </string>
+    <string name="Txt_paginas_D">Paginas:</string>
+    <string name="paginas_D"> -- </string>
+    <string name="Txt_descripcion_D">Descripcion:</string>
+    <string name="descripcion_D"> -- </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
