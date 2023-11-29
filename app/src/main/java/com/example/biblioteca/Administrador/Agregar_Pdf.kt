@@ -1,7 +1,9 @@
 package com.example.biblioteca.Administrador
 
+import android.Manifest
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricManager.Strings
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.android.gms.tasks.Task
 import com.google.firebase.ktx.Firebase
@@ -188,7 +191,7 @@ class Agregar_Pdf : AppCompatActivity() {
 
     val pdfActivityRL = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback { resultado ->
+        ActivityResultCallback {resultado->
             if (resultado.resultCode == RESULT_OK) {
                 pdfUri = resultado.data!!.data
             } else {
