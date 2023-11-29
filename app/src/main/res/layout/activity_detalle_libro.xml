@@ -37,8 +37,10 @@
 
     </RelativeLayout>
 
+    <!--info libro-->
     <ScrollView
         android:layout_below="@id/toolbarRlDetalle"
+        android:layout_above="@id/Bt_leer_libro"
         android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -206,5 +208,13 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
         
     </ScrollView>
+    
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Bt_leer_libro"
+        android:text="@string/Bt_leer_libro"
+        android:drawableTop="@drawable/ic_leer_libro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package com.example.biblioteca.Administrador
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.biblioteca.LeerLibro
 import com.example.biblioteca.R
 import com.example.biblioteca.databinding.ActivityDetalleLibroBinding
 import com.example.biblioteca.databinding.ItemLibroAdminBinding
@@ -24,6 +26,12 @@ class DetalleLibro : AppCompatActivity() {
 
         binding.IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.BtLeerLibro.setOnClickListener {
+            val intent = Intent(this@DetalleLibro, LeerLibro::class.java)
+            intent.putExtra("idLibro", idLibro)
+            startActivity(intent)
         }
 
         cargarDetalleLibro()

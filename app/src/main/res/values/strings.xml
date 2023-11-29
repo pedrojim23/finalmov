@@ -69,6 +69,10 @@
     <string name="Txt_descripcion_D">Descripcion:</string>
     <string name="descripcion_D"> -- </string>
 
+    <string name="Bt_leer_libro">Leer</string>
+
+    <string name="Txt_leer_libro">Leer libro</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
