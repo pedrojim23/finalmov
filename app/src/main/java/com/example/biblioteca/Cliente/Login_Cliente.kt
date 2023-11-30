@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import com.example.biblioteca.MainActivity
+import com.example.biblioteca.MainActivityCliente
 import com.example.biblioteca.R
 import com.example.biblioteca.databinding.ActivityLoginClienteBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -66,7 +67,7 @@ class Login_Cliente : AppCompatActivity() {
 
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
             progressDialog.dismiss()
-            startActivity(Intent(this@Login_Cliente, MainActivity::class.java))
+            startActivity(Intent(this@Login_Cliente, MainActivityCliente::class.java))
             finishAffinity()
         }
             .addOnFailureListener {e->
