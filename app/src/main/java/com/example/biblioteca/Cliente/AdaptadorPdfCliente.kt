@@ -1,6 +1,7 @@
 package com.example.biblioteca.Cliente
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,6 +67,9 @@ class AdaptadorPdfCliente : RecyclerView.Adapter<AdaptadorPdfCliente.HolderPdfCl
         MisFunciones.CargarTamanioPdf(pdfUrl, titulo, holder.Txt_tamanio_libro_admin)
 
         holder.itemView.setOnClickListener{
+            val intent = Intent (m_context, DetalleLibro_Cliente::class.java)
+            intent.putExtra("idLibro", pdfId)
+            m_context.startActivity(intent)
         }
     }
 

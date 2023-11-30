@@ -1,6 +1,7 @@
 package com.example.biblioteca.Fragmentos_Cliente
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.biblioteca.Administrador.ModeloCategoria
 import com.example.biblioteca.Cliente.AdaptadorCategoria_Cliente
+import com.example.biblioteca.Cliente.TopDescargados
+import com.example.biblioteca.Cliente.TopVistos
 import com.example.biblioteca.R
 import com.example.biblioteca.databinding.FragmentClienteCuentaBinding
 import com.example.biblioteca.databinding.FragmentClienteDashboardBinding
@@ -57,6 +60,13 @@ class Fragment_cliente__dashboard : Fragment() {
 
             }
         })
+
+        binding.BtnMasVistos.setOnClickListener {
+            startActivity (Intent (mContext, TopVistos::class.java))
+        }
+        binding.BtnMasDescargados.setOnClickListener {
+            startActivity (Intent (mContext, TopDescargados::class.java))
+        }
     }
 
     private fun cargarCategorias() {
