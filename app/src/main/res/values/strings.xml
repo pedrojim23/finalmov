@@ -129,7 +129,23 @@
 
     <string name="Btn_mas_descargados">Mas descargados</string>
 
+    <!--Perfil cliente-->
+    <string name="nombres_cliente">Nombres: </string>
+    <string name="Txt_nombres_cliente"> -- </string>
+    <string name="email_cliente">Cliente: </string>
+    <string name="Txt_email_cliente"> -- </string>
+    <string name="tiempo_registro_cliente">Miembro desde: </string>
+    <string name="Txt_tiempo_registro_cliente"> -- </string>
+    <string name="edad_cliente">Edad: </string>
+    <string name="Txt_edad_cliente"> -- </string>
+    <string name="rol_cliente">Rol: </string>
+    <string name="Txt_rol_cliente"> -- </string>
+    <string name="Txt_mas_opciones_cliente">Mas opciones: </string>
 
+    <string name="EditarPerfilCliente">Editar perfil</string>
+    <string name="Txt_editar_perfil_cliente">Editar perfi</string>
+    <string name="Et_c_nombres">Nombres</string>
+    <string name="Bt_actualizar_info_cli">Actualizar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
