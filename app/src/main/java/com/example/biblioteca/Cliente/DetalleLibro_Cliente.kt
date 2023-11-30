@@ -74,7 +74,7 @@ class DetalleLibro_Cliente : AppCompatActivity() {
 
         binding.BtnFavoritos.setOnClickListener {
             if (esFavorito){
-                eliminarFavoritos()
+                MisFunciones.eliminarFavoritos(this@DetalleLibro_Cliente, idLibro)
             }
             else{
                 agregarFavoritos()
@@ -133,17 +133,6 @@ class DetalleLibro_Cliente : AppCompatActivity() {
             }
     }
 
-    private fun eliminarFavoritos(){
-        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
-        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
-            .removeValue()
-            .addOnSuccessListener {
-                Toast.makeText(applicationContext, "Eliminado de favoritos", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {e->
-                Toast.makeText(applicationContext, "No se elimino de favoritos debido a ${e.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
 
     private fun descargarLibro() {
         progressDialog.setMessage("Descargando libro")

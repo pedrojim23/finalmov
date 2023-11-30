@@ -86,6 +86,15 @@
             android:layout_toEndOf="@+id/RLPdf"
             android:maxLines="1"
             />
+        
+        <ImageButton
+            android:id="@+id/Ib_eliminar_fav"
+            android:src="@drawable/ic_item_eliminar_fav"
+            android:padding="5dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
