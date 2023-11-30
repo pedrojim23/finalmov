@@ -111,6 +111,9 @@
     <string name="TxtLoginCliente">Login cliente</string>
     <string name="Btn_login_cliente">Iniciar sesion</string>
 
+    <!-- login google -->
+    <string name="Txt_alternativa">Alternativa</string>
+    <string name="Btn_login_google">Ingresar con Google</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
