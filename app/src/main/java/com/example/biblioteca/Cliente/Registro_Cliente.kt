@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import com.example.biblioteca.Administrador.Login_admin
 import com.example.biblioteca.MainActivity
 import com.example.biblioteca.MainActivityCliente
 import com.example.biblioteca.R
@@ -36,6 +37,10 @@ class Registro_Cliente : AppCompatActivity() {
 
         binding.BtnResgistrarCliente.setOnClickListener{
             ValidarInformacion()
+        }
+
+        binding.TxtTengoCuentaCliente.setOnClickListener{
+            startActivity(Intent(this@Registro_Cliente, Login_Cliente::class.java))
         }
     }
 
