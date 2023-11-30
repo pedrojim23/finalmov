@@ -2,6 +2,8 @@ package com.example.biblioteca.Cliente
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import com.example.biblioteca.Administrador.AdaptadorPdfAdmin
 import com.example.biblioteca.Administrador.Modelopdf
 import com.example.biblioteca.R
@@ -36,6 +38,24 @@ class ListaPdfCliente : AppCompatActivity() {
         }
 
         cargarLibros()
+
+        binding.EtBuscarLibroCliente.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(libro: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                try {
+                    adaptadorPdfCliente.filter.filter(libro)
+                }catch (e: Exception){
+
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
     }
 
     private fun cargarLibros() {

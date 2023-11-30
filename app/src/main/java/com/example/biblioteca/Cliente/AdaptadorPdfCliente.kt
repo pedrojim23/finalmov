@@ -1,25 +1,24 @@
 package com.example.biblioteca.Cliente
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.biblioteca.Administrador.FiltroPdfAdmin
 import com.example.biblioteca.Administrador.MisFunciones
 import com.example.biblioteca.Administrador.Modelopdf
 import com.example.biblioteca.databinding.ItemLibroClienteBinding
 
-class AdaptadorPdfCliente : RecyclerView.Adapter<AdaptadorPdfCliente.HolderPdfCliente>{
+class AdaptadorPdfCliente : RecyclerView.Adapter<AdaptadorPdfCliente.HolderPdfCliente>, Filterable{
     private lateinit var binding: ItemLibroClienteBinding
 
     private var m_context : Context
     public var pdfArrayList : ArrayList<Modelopdf>
     private var filtroLibro : ArrayList<Modelopdf>
-    private var filtro : FiltroPdfAdmin?=null
+    private var filtro : FiltrarPdfCliente?=null
 
     constructor(m_context: Context, pdfArrayList: ArrayList<Modelopdf>) : super() {
         this.m_context = m_context
@@ -68,5 +67,12 @@ class AdaptadorPdfCliente : RecyclerView.Adapter<AdaptadorPdfCliente.HolderPdfCl
 
         holder.itemView.setOnClickListener{
         }
+    }
+
+    override fun getFilter(): Filter {
+        if(filtro == null){
+            filtro = FiltrarPdfCliente(filtroLibro, this)
+        }
+        return filtro as FiltrarPdfCliente
     }
 }

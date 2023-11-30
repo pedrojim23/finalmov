@@ -58,8 +58,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:drawableStart="@drawable/ic_buscar"
-        android:hint="@string/Et_buscar_libro_admin"
-        android:id="@+id/Et_buscar_libro_admin"
+        android:hint="@string/Et_buscar_libro_cliente"
+        android:id="@+id/Et_buscar_libro_cliente"
         />
 
     <!-- Lista de Libros-->
@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/Rv_libros_cliente"
-        android:layout_below="@+id/Et_buscar_libro_admin"
+        android:layout_below="@+id/Et_buscar_libro_cliente"
         android:layout_margin="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_libro_cliente"/>
