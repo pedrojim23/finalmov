@@ -23,7 +23,7 @@ class Modelopdf {
         url: String,
         tiempo: Long,
         contadorVistas: Long,
-        contadorDescargas: Long
+        contadorDescargas: Long,
         esFavorito : Boolean
     ) {
         this.uid = uid
