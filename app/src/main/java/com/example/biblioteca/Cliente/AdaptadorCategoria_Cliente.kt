@@ -6,24 +6,31 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.biblioteca.Administrador.FiltroCategoria
 import com.example.biblioteca.Administrador.ListaPdfAdmin
 import com.example.biblioteca.Administrador.ModeloCategoria
 import com.example.biblioteca.databinding.ItemCategoriaAdminBinding
 import com.example.biblioteca.databinding.ItemCategoriaClienteBinding
 
-class AdaptadorCategoria_Cliente: RecyclerView.Adapter<AdaptadorCategoria_Cliente.viewHolder> {
+class AdaptadorCategoria_Cliente: RecyclerView.Adapter<AdaptadorCategoria_Cliente.viewHolder>, Filterable{
 
     private lateinit var binding : ItemCategoriaClienteBinding
 
     private val context : Context
-    private val categoriaArrayList : ArrayList<ModeloCategoria>
+    public var categoriaArrayList : ArrayList<ModeloCategoria>
+
+    private var filtroLista : ArrayList<ModeloCategoria>
+    private var filtro : FiltrarCategoria_Cliente ?= null
 
     constructor(context: Context, categoriaArrayList: ArrayList<ModeloCategoria>) {
         this.context = context
         this.categoriaArrayList = categoriaArrayList
+        this.filtroLista = categoriaArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
@@ -48,5 +55,12 @@ class AdaptadorCategoria_Cliente: RecyclerView.Adapter<AdaptadorCategoria_Client
     inner public class viewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
         var categoriaTv : TextView = binding.ItemNombreCatCl
 
+    }
+
+    override fun getFilter(): Filter {
+        if(filtro==null){
+            filtro= FiltrarCategoria_Cliente(filtroLista, this)
+        }
+        return filtro as FiltrarCategoria_Cliente
     }
 }
