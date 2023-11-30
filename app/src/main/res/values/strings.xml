@@ -103,6 +103,8 @@
     <string name="Menu_dashboard_cliente">Panel</string>
     <string name="Menu_favoritos_cliente">Favoritos</string>
     <string name="Menu_cuenta_cliente">Cuenta</string>
+    
+    <string name="Titulo_RL_Cliente">Titulo</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
