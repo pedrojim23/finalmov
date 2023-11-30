@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Biblioteca"
         tools:targetApi="31">
         <activity
+            android:name=".Cliente.ListaPdfCliente"
+            android:exported="false" />
+        <activity
             android:name=".Cliente.Login_Cliente"
             android:exported="false" />
         <activity

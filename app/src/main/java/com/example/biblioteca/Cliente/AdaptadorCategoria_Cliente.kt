@@ -50,6 +50,13 @@ class AdaptadorCategoria_Cliente: RecyclerView.Adapter<AdaptadorCategoria_Client
         val uid = modelo.uid
 
         holder.categoriaTv.text = categoria
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, ListaPdfCliente::class.java)
+            intent.putExtra("idCategoria", id)
+            intent.putExtra("tituloCategoria", categoria)
+            context.startActivity(intent)
+        }
     }
 
     inner public class viewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
