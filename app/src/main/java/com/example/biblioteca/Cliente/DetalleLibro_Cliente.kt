@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage
 import java.io.FileOutputStream
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 
 class DetalleLibro_Cliente : AppCompatActivity() {
 
@@ -29,7 +30,12 @@ class DetalleLibro_Cliente : AppCompatActivity() {
 
     private var tituloLibro = ""
     private var urlLibro = ""
+
+    private lateinit var firebaseAuth: FirebaseAuth
+
     private lateinit var progressDialog : ProgressDialog
+
+    private var esFavorito = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalleLibroClienteBinding.inflate(layoutInflater)
@@ -41,6 +47,8 @@ class DetalleLibro_Cliente : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Por favor espere")
         progressDialog.setCanceledOnTouchOutside(false)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         binding. IbRegresar.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
@@ -56,14 +64,85 @@ class DetalleLibro_Cliente : AppCompatActivity() {
         binding.BtnDescargarLibroC.setOnClickListener {
             //descargarLibro()
             if (ContextCompat.checkSelfPermission (this, android. Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-            PackageManager.PERMISSION_GRANTED) {
-            descargarLibro()
-        }else{
-            permisoAlmacenamiento.launch (android. Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
+                PackageManager.PERMISSION_GRANTED) {
+                descargarLibro()
+            }
+            else{
+                permisoAlmacenamiento.launch (android. Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
         }
 
+        binding.BtnFavoritos.setOnClickListener {
+            if (esFavorito){
+                eliminarFavoritos()
+            }
+            else{
+                agregarFavoritos()
+            }
+        }
+        comprobarFavoritos()
         cargarDetalleLibro()
+    }
+
+    private fun comprobarFavoritos() {
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    esFavorito = snapshot.exists()
+                    if (esFavorito){
+                        binding.BtnFavoritos.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_aregar_favorito,
+                            0,
+                            0
+                        )
+                        binding.BtnFavoritos.text =  "Eliminar de favoritos"
+                    }
+                    else{
+                        binding.BtnFavoritos.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_no_favorito,
+                            0,
+                            0
+                        )
+                        binding.BtnFavoritos.text =  "Agregar a favoritos"
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+    private fun agregarFavoritos(){
+        val tiempo = System.currentTimeMillis()
+        val hashMap = HashMap<String, Any>()
+        hashMap["id"] = idLibro
+        hashMap["tiempo"] = tiempo
+
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "Agregado a favoritos", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {e->
+                Toast.makeText(applicationContext, "No se agrego a favoritos debido a ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun eliminarFavoritos(){
+        val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
+        ref.child(firebaseAuth.uid!!).child("Favoritos").child(idLibro)
+            .removeValue()
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "Eliminado de favoritos", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {e->
+                Toast.makeText(applicationContext, "No se elimino de favoritos debido a ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun descargarLibro() {
@@ -142,22 +221,22 @@ class DetalleLibro_Cliente : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("Libros")
         ref.child(idLibro)
             .addListenerForSingleValueEvent (object: ValueEventListener{
-            override fun onDataChange (snapshot: DataSnapshot) {
-                var contDescarActual = "${snapshot.child("contadorDescargas").value}"
-                if (contDescarActual == "" || contDescarActual == "null"){
-                    contDescarActual = "0"
+                override fun onDataChange (snapshot: DataSnapshot) {
+                    var contDescarActual = "${snapshot.child("contadorDescargas").value}"
+                    if (contDescarActual == "" || contDescarActual == "null"){
+                        contDescarActual = "0"
+                    }
+                    val nuevaDes = contDescarActual.toLong() + 1
+                    val hashMap = HashMap<String, Any>()
+                    hashMap ["contador Descargas"] = nuevaDes
+                    val BDRef = FirebaseDatabase.getInstance().getReference ("Libros")
+                    BDRef.child(idLibro)
+                        .updateChildren(hashMap)
                 }
-                val nuevaDes = contDescarActual.toLong() + 1
-                val hashMap = HashMap<String, Any>()
-                hashMap ["contador Descargas"] = nuevaDes
-                val BDRef = FirebaseDatabase.getInstance().getReference ("Libros")
-                BDRef.child(idLibro)
-                    .updateChildren(hashMap)
-            }
-            override fun onCancelled (error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
+                override fun onCancelled (error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 
     private val permisoAlmacenamiento = registerForActivityResult(
