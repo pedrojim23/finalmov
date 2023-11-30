@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "368180485172",
+    "firebase_url": "https://biblioteca-5a3f7-default-rtdb.firebaseio.com",
     "project_id": "biblioteca-5a3f7",
     "storage_bucket": "biblioteca-5a3f7.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.biblioteca"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "368180485172-43irbe4mn5sv27rcdqha2g4rd9b8icqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.biblioteca",
+            "certificate_hash": "42668b5fcc389005c7402990718afa2f55d97e09"
+          }
+        },
+        {
+          "client_id": "368180485172-9asan54r3gqrbehed0mn2khie2dtdsb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDDVrs3XDiY8p_4HCc8IES7qNitFP0jux0"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368180485172-9asan54r3gqrbehed0mn2khie2dtdsb5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
