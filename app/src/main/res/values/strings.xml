@@ -89,6 +89,17 @@
     <string name="Et_a_nombres">Nombres</string>
     <string name="Bt_actualizar_info">Actualizar</string>
 
+
+
+    <string name="TxtRegistroCliente">Registro de cliente</string>
+    <string name="Et_nombres_cliente">Nombres</string>
+    <string name="Et_edad_cliente">Edad</string>
+    <string name="Et_email_cliente">Email</string>
+    <string name="Et_password_cliente">Contraseña</string>
+    <string name="Et_R_password_cliente">Repite la contraseña</string>
+    <string name="Btn_resgistrar_cliente">Registrarme</string>
+    <string name="Txt_tengo_cuenta_cliente">Tengo una cuenta</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

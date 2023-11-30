@@ -15,17 +15,31 @@
             android:text="@string/Txt_rol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:paddingTop="15dp"
+            android:src="@drawable/icono_administrador"
+            android:layout_marginTop="10dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_rol_administrador"
             android:text="@string/Btn_rol_administrador"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
+            android:textAllCaps="true"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:paddingTop="15dp"
+            android:src="@drawable/icono_cliente"
+            android:layout_marginTop="10dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_rol_cliente"
             android:text="@string/Btn_rol_cliente"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:textAllCaps="true"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.biblioteca.Administrador.Registrar_admin
+import com.example.biblioteca.Cliente.Registro_Cliente
 import com.example.biblioteca.databinding.ActivityEligirRolBinding
 
 class Eligir_rol : AppCompatActivity() {
@@ -21,7 +22,8 @@ class Eligir_rol : AppCompatActivity() {
         }
 
         binding.BtnRolCliente.setOnClickListener(){
-            Toast.makeText(applicationContext, "Rol cliente", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, "Rol cliente", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@Eligir_rol, Registro_Cliente::class.java))
         }
 
     }
